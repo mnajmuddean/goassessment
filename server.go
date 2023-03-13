@@ -1,23 +1,19 @@
 package main
 
 import (
-	"net/http"
-
-	"github.com/labstack/echo/v4"
+	// import all the packages
+	"fmt"
+	"strings"
 )
 
 func main() {
-	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World !")
-	})
-
-	e.GET("/users:id", getUser)
-
-	e.Logger.Fatal(e.Start(":1323"))
-}
-
-func getUser(c echo.Context) {
-	id := c.Param("id")
-	return c.String(http.StatusOK, ids)
+	// main function
+	fmt.Println("Please enter your name.")
+	// declare variable string named name
+	var name string
+	// tells the computer to wait for input
+	// from the keyboard ending with a new line or (\n), character
+	fmt.Scanln(&name)
+	name = strings.TrimSpace(name)
+	fmt.Printf("Hi, %s! I'm Go!", name)
 }
